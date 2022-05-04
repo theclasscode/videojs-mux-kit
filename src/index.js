@@ -19,6 +19,10 @@ videojs.hook('beforesetup', function (videoEl, options) {
 });
 
 videojs.hook('setup', function (player) {
+  videojs.log('setup', {
+    player,
+    opts: player.options(),
+  });
   setupTimelineHoverPreviewsHelper(player);
 
   if (player.options().timelineHoverPreviewsUrl) {
