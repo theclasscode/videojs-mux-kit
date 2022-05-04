@@ -10,6 +10,7 @@ import {
 } from './utils/mux-data-middleware';
 import { setupSubtitlesForPlayer } from './utils/mux-subtitles';
 import { setupTimelineHoverPreviewsHelper } from './utils/mux-timelineHoverPreviews';
+import { setupStoryboardTokenHelper } from './utils/mux-storyboardToken';
 
 videojs.hook('beforesetup', function (videoEl, options) {
   // We might have Mux Data enabled, and we need to handle overriding some metadata
@@ -20,6 +21,7 @@ videojs.hook('beforesetup', function (videoEl, options) {
 
 videojs.hook('setup', function (player) {
   setupTimelineHoverPreviewsHelper(player);
+  setupStoryboardTokenHelper(player);
 
   if (player.options().timelineHoverPreviewsUrl) {
     // we should setup timelineHoverPreviews with the URL passed in the player config options
