@@ -4,39 +4,47 @@ import 'videojs-http-source-selector';
 import './style/index.scss';
 
 import './tech/hlsjs';
-import {setupMuxDataTracking, setupMuxDataMetadataOverride} from './utils/mux-data-middleware';
-import {setupSubtitlesForPlayer} from './utils/mux-subtitles';
-import {setupTimelineHoverPreviewsHelper} from './utils/mux-timelineHoverPreviews';
+import {
+  setupMuxDataTracking,
+  setupMuxDataMetadataOverride,
+} from './utils/mux-data-middleware';
+import { setupSubtitlesForPlayer } from './utils/mux-subtitles';
+import { setupTimelineHoverPreviewsHelper } from './utils/mux-timelineHoverPreviews';
 
-videojs.hook('beforesetup', function(videoEl, options) {
+videojs.hook('beforesetup', function (videoEl, options) {
   // We might have Mux Data enabled, and we need to handle overriding some metadata
   options = setupMuxDataMetadataOverride(videoEl, options);
 
   return options;
 });
 
-videojs.hook('setup', function(player) {
-
+videojs.hook('setup', function (player) {
   setupTimelineHoverPreviewsHelper(player);
 
   if (player.options().timelineHoverPreviewsUrl) {
     // we should setup timelineHoverPreviews with the URL passed in the player config options
-    player.timelineHoverPreviews({enabled: true, src: player.options().timelineHoverPreviewsUrl});
+    player.timelineHoverPreviews({
+      enabled: true,
+      src: player.options().timelineHoverPreviewsUrl,
+    });
   }
 });
 
 videojs.use('video/mux', (player) => {
-
   return {
     setSource({ src }, next) {
-
       if (player.options().timelineHoverPreviews) {
         // strip off any playback related query string parameters, so the
         // storyboard url is not malformed
         let playbackId = src.split(`?`, 1);
+        let token = player.options().storyboardToken;
         let storyboardUrl = `https://image.mux.com/${playbackId[0]}/storyboard.vtt`;
-        
-        player.timelineHoverPreviews({enabled: true, src: storyboardUrl});
+
+        if (token) {
+          storyboardUrl = `${storyboardUrl}?token=${token}`;
+        }
+
+        player.timelineHoverPreviews({ enabled: true, src: storyboardUrl });
       }
 
       next(null, {
