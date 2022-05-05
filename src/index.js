@@ -22,6 +22,9 @@ videojs.hook('beforesetup', function (videoEl, options) {
 videojs.hook('setup', function (player) {
   setupTimelineHoverPreviewsHelper(player);
 
+  // initializes the AirPlay plugin
+  player.airPlay();
+
   player.landscapeFullscreen({
     fullscreen: {
       enterOnRotate: true,
