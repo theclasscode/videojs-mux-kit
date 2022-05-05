@@ -1,8 +1,8 @@
 import videojs from 'video.js';
+import airPlay from '@silvermine/videojs-airplay';
 import 'videojs-contrib-quality-levels';
 import 'videojs-http-source-selector';
 import 'videojs-landscape-fullscreen';
-import '@silvermine/videojs-airplay';
 import './style/index.scss';
 
 import './tech/hlsjs';
@@ -13,6 +13,8 @@ import {
 import { setupSubtitlesForPlayer } from './utils/mux-subtitles';
 import { setupTimelineHoverPreviewsHelper } from './utils/mux-timelineHoverPreviews';
 
+airPlay(videojs);
+
 videojs.hook('beforesetup', function (videoEl, options) {
   // We might have Mux Data enabled, and we need to handle overriding some metadata
   options = setupMuxDataMetadataOverride(videoEl, options);
@@ -22,9 +24,6 @@ videojs.hook('beforesetup', function (videoEl, options) {
 
 videojs.hook('setup', function (player) {
   setupTimelineHoverPreviewsHelper(player);
-
-  // initializes the AirPlay plugin
-  player.airPlay();
 
   player.landscapeFullscreen({
     fullscreen: {

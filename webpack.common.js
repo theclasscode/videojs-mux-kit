@@ -8,36 +8,42 @@ module.exports = (env) => {
         {
           test: /\.js$/,
           loader: 'esbuild-loader',
-        }
-      ]
+        },
+        {
+          test: /\.svg$/,
+          loader: 'svg-inline-loader',
+        },
+      ],
     },
     optimization: {
       minimize: true,
-      minimizer: [new ESBuildMinifyPlugin({
-        target: 'es2015'
-      })],
+      minimizer: [
+        new ESBuildMinifyPlugin({
+          target: 'es2015',
+        }),
+      ],
     },
     plugins: [
       new ESBuildPlugin(),
       new MiniCssExtractPlugin({
         filename: 'index.css',
       }),
-    ]
+    ],
   };
 
   if (!env.vhs) {
     config.resolve = {
       alias: {
         'video.js': 'video.js/core',
-      }
+      },
     };
   } else {
     config.resolve = {
       alias: {
         'hls.js': false,
         './tech/hlsjs': false,
-        './utils/mux-subtitles': false
-      }
+        './utils/mux-subtitles': false,
+      },
     };
   }
 
