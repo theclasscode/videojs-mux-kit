@@ -2,6 +2,7 @@ import videojs from 'video.js';
 import 'videojs-contrib-quality-levels';
 import 'videojs-http-source-selector';
 import 'videojs-landscape-fullscreen';
+import '@silvermine/videojs-airplay';
 import './style/index.scss';
 
 import './tech/hlsjs';
