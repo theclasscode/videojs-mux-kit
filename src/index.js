@@ -12,6 +12,7 @@ import {
 } from './utils/mux-data-middleware';
 import { setupSubtitlesForPlayer } from './utils/mux-subtitles';
 import { setupTimelineHoverPreviewsHelper } from './utils/mux-timelineHoverPreviews';
+import './plugins/music-volume';
 
 airPlay(videojs);
 

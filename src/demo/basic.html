@@ -1,18 +1,49 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link rel="stylesheet" href="../../dist/index.css" />
+    <script src="../../dist/index.js"></script>
+  </head>
 
-<head></head>
+  <body>
+    <h1>Mux Video.js Kit</h1>
 
-<body>
-  <h1>Mux Video.js Kit</h1>
-
-  <section>
-    <h2>Basic example</h2>
-    <video id="mux-default" class="video-js vjs-16-9" controls preload="auto" width="100%"
-      poster="https://image.mux.com/DS00Spx1CV902MCtPj5WknGlR102V5HFkDe/thumbnail.jpg" data-setup='{}'>
-      <source src="DS00Spx1CV902MCtPj5WknGlR102V5HFkDe" type="video/mux" />
-    </video>
-  </section>
-</body>
-
+    <section>
+      <h2>Basic example</h2>
+      <div style="max-width: 900px; margin: auto">
+        <video
+          id="mux-default"
+          class="video-js vjs-16-9 vjs-big-play-centered"
+          controls
+          preload="auto"
+          width="100%"
+          poster="https://image.mux.com/DS00Spx1CV902MCtPj5WknGlR102V5HFkDe/thumbnail.jpg"
+          data-setup='{
+            "controlBar": {
+              "liveDisplay": true,
+              "pictureInPictureToggle": false,
+              "volumePanel": {
+                "inline": false,
+                "vertical": true
+              }
+            },
+            "plugins": {
+              "musicVolume": {
+                "inline": false,
+                "vertical": true
+              },
+              "airPlay": {
+                "addButtonToControlBar": true
+              },
+              "httpSourceSelector": {
+                "default": "high"
+              }
+            }
+        }'
+        >
+          <source src="DS00Spx1CV902MCtPj5WknGlR102V5HFkDe" type="video/mux" />
+        </video>
+      </div>
+    </section>
+  </body>
 </html>

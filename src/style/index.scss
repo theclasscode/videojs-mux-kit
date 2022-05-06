@@ -2,3 +2,7 @@
 @import 'components/airplay';
 @import 'components/vtt-thumbnails';
 @import 'components/text-tracks';
+
+.video-js .vjs-volume-panel .vjs-volume-control.vjs-volume-vertical {
+    width: 60px;
+}
