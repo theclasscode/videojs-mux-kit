@@ -26,19 +26,19 @@ $volume-slider-color: #ffffff;
   font-size: 16px;
 }
 
-.vjs-custom-volume-button-0 {
+.vjs-volume-level-0 {
   @extend .vjs-icon-volume-mute;
 }
 
-.vjs-custom-volume-button-1 {
+.vjs-volume-level-1 {
   @extend .vjs-icon-volume-low;
 }
 
-.vjs-custom-volume-button-2 {
+.vjs-volume-level-2 {
   @extend .vjs-icon-volume-mid;
 }
 
-.vjs-custom-volume-button-3 {
+.vjs-volume-level-3 {
   @extend .vjs-icon-volume-high;
 }
 

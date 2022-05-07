@@ -10,7 +10,7 @@ class CustomVolumeButton extends ClickableComponent {
   buildCSSClass() {
     const volumeLevel = 3;
 
-    return `vjs-custom-volume-button vjs-custom-volume-button-${volumeLevel} ${super.buildCSSClass()}`;
+    return `vjs-custom-volume-button vjs-volume-level-${volumeLevel} ${super.buildCSSClass()}`;
   }
 
   createControlTextEl(el) {
@@ -95,8 +95,26 @@ class CustomVolumeButton extends ClickableComponent {
 
       const newValue = Number(e.target.value) / 100;
       const videoEl = this.player_.children()[0];
+      const buttonEl = this.el_;
 
       videoEl.volume = newValue;
+
+      buttonEl.classList.remove(
+        'vjs-volume-level-0',
+        'vjs-volume-level-1',
+        'vjs-volume-level-2',
+        'vjs-volume-level-3'
+      );
+
+      if (newValue > 0.66) {
+        buttonEl.classList.add('vjs-volume-level-3');
+      } else if (newValue > 0.33) {
+        buttonEl.classList.add('vjs-volume-level-2');
+      } else if (newValue > 0) {
+        buttonEl.classList.add('vjs-volume-level-1');
+      } else {
+        buttonEl.classList.add('vjs-volume-level-0');
+      }
     };
 
     musicSlider.addEventListener('input', onChangeMusicVolume);
