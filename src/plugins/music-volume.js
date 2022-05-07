@@ -1,5 +1,6 @@
 import videojs from 'video.js';
-import MusicVolumeButton from './components/MusicVolumeButton';
+// import MusicVolumeButton from './components/MusicVolumeButton';
+import CustomVolumeButton from './components/CustomVolumeButton';
 
 // Default options for the plugin.
 const defaults = {};
@@ -24,14 +25,19 @@ const onPlayerReady = (player, options) => {
 const musicVolume = function (options) {
   this.ready(() => {
     onPlayerReady(this, videojs.mergeOptions(defaults, options));
-    console.log(this.getChild('controlBar').getChild('volumePanel'));
-    this.getChild('controlBar')
-      .getChild('volumePanel')
-      .getChild('volumeControl')
-      .addChild('MusicVolumeButton', options);
+
+    const controlBar = this.getChild('controlBar');
+    const progressControl = controlBar.getChild('progressControl').el();
+
+    controlBar
+      .el()
+      .insertBefore(
+        controlBar.addChild('CustomVolumeButton').el(),
+        progressControl
+      );
   });
 
-  videojs.registerComponent('MusicVolumeButton', MusicVolumeButton);
+  videojs.registerComponent('CustomVolumeButton', CustomVolumeButton);
 };
 
 // Register the plugin with video.js.

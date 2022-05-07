@@ -3,6 +3,76 @@
 @import 'components/vtt-thumbnails';
 @import 'components/text-tracks';
 
-.video-js .vjs-volume-panel .vjs-volume-control.vjs-volume-vertical {
-    width: 60px;
+$volume-slider-color: #ff4500;
+
+.select-none { 
+  user-select: none;
 }
+
+.video-js .vjs-volume-control:hover .vjs-mouse-display {
+    display: none !important;
+}
+
+.video-js .vjs-custom-volume-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 40px;
+    font-size: 16px;
+
+    .vjs-volume-wrapper:focus {
+      text-shadow: none;
+    }
+}
+
+
+.vjs-volume-wrapper {
+    position: absolute;
+    bottom: 30px;
+    width: 10em;
+    left: 0;
+    height: 90px;
+    background-color: rgba(43,51,63,.7);
+}
+
+.vjs-custom-volume-slider {
+  font-size: 12px;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: 8px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 5px;
+    background-image: linear-gradient($volume-slider-color, $volume-slider-color);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-top: 10px;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 14px;
+      width: 14px;
+      border-radius: 50%;
+      background: $volume-slider-color;
+      cursor: ew-resize;
+      box-shadow: 0 0 2px 0 #555;
+      transition: background .3s ease-in-out;
+
+      &:hover {
+        background: $volume-slider-color;
+      }
+    }
+
+    &::-webkit-slider-runnable-track {
+
+      -webkit-appearance: none;
+      box-shadow: none;
+      border: none;
+      background: transparent;
+    }
+  }
+  
