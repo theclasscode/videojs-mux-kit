@@ -8,7 +8,9 @@ class CustomVolumeButton extends ClickableComponent {
   }
 
   buildCSSClass() {
-    return `vjs-custom-volume-button vjs-icon-volume-mid ${super.buildCSSClass()}`;
+    const volumeLevel = 3;
+
+    return `vjs-custom-volume-button vjs-custom-volume-button-${volumeLevel} ${super.buildCSSClass()}`;
   }
 
   createControlTextEl(el) {

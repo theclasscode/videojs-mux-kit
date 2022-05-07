@@ -26,6 +26,22 @@ $volume-slider-color: #ffffff;
   font-size: 16px;
 }
 
+.vjs-custom-volume-button-0 {
+  @extend .vjs-icon-volume-mute;
+}
+
+.vjs-custom-volume-button-1 {
+  @extend .vjs-icon-volume-low;
+}
+
+.vjs-custom-volume-button-2 {
+  @extend .vjs-icon-volume-mid;
+}
+
+.vjs-custom-volume-button-3 {
+  @extend .vjs-icon-volume-high;
+}
+
 .vjs-volume-wrapper {
   position: absolute;
   bottom: 30px;
