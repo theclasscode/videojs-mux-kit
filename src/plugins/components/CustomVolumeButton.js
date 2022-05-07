@@ -84,8 +84,21 @@ class CustomVolumeButton extends ClickableComponent {
         ((val - min) * 100) / (max - min) + '% 100%';
     }
 
-    musicSlider.addEventListener('input', handleInputChange);
-    teacherSlider.addEventListener('input', handleInputChange);
+    const onChangeMusicVolume = (e) => {
+      handleInputChange(e);
+    };
+
+    const onChangeTeacherVolume = (e) => {
+      handleInputChange(e);
+
+      const newValue = Number(e.target.value) / 100;
+      const videoEl = this.player_.children()[0];
+
+      videoEl.volume = newValue;
+    };
+
+    musicSlider.addEventListener('input', onChangeMusicVolume);
+    teacherSlider.addEventListener('input', onChangeTeacherVolume);
 
     return this.controlTextEl_;
   }
