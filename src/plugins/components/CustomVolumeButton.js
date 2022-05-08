@@ -131,6 +131,11 @@ class CustomVolumeButton extends ClickableComponent {
     if (classes.contains('vjs-custom-volume-button')) {
       this.controlTextEl_.classList.toggle('vjs-hidden');
     }
+
+    const controlBarHeight =
+      document.querySelector('.vjs-control-bar').clientHeight;
+    document.querySelector('.vjs-volume-wrapper').style.bottom =
+      controlBarHeight + 'px';
   }
 }
 
