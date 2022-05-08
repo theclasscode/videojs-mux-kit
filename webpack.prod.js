@@ -9,7 +9,7 @@ module.exports = async function (env) {
     entry: path.resolve(__dirname, 'src/entry.js'),
     mode: 'production',
     output: {
-      path: path.resolve(__dirname, 'dist/v1'),
+      path: path.resolve(__dirname, 'dist'),
       filename: env.vhs ? 'index.vhs.js' : 'index.js',
       library: 'videojs',
       libraryTarget: 'umd',

@@ -2,7 +2,7 @@
   "name": "@mux/videojs-kit",
   "version": "0.10.0",
   "description": "",
-  "main": "dist/v1/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "clean": "rm -rf ./dist",
     "dev": "webpack serve --config webpack.dev.js",

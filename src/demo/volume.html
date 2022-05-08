@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../../dist/v1/index.css" />
-    <script src="../../dist/v1/index.js"></script>
+    <link rel="stylesheet" href="../../dist/index.css" />
+    <script src="../../dist/index.js"></script>
   </head>
 
   <body>
@@ -39,5 +39,13 @@
         </video>
       </div>
     </section>
+
+    <script>
+      const player = videojs('mux-default');
+      // const player = document.getElementById('mux-default');
+      player.on('musicVolumeChange', (e, val) => {
+        console.log('val', val);
+      });
+    </script>
   </body>
 </html>

@@ -29,7 +29,7 @@ module.exports = async function (env) {
       ],
     },
     output: {
-      path: path.resolve(__dirname, 'dist/v1'),
+      path: path.resolve(__dirname, 'dist'),
     },
     mode: 'development',
     watch: true,
