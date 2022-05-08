@@ -90,7 +90,7 @@ class CustomVolumeButton extends ClickableComponent {
       handleInputChange(e);
 
       const newValue = Number(e.target.value) / 100;
-      this.player_.trigger('musicVolumeChange', newValue);
+      this.player_.trigger('musicVolumeChange', e, { value: newValue });
     };
 
     const onChangeTeacherVolume = (e) => {
