@@ -69,6 +69,15 @@ videojs.use('video/mux', (player) => {
         setupSubtitlesForPlayer(player);
       }
     },
+
+    setCurrentTime(time) {
+      // If this has dual music controls, that means the user shouldn't be able to scrub the video.
+      if (player.options().plugins.musicVolume) {
+        return player.currentTime();
+      }
+
+      return time;
+    },
   };
 });
 

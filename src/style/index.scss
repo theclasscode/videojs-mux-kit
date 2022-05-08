@@ -17,6 +17,11 @@ $volume-slider-color: #ffffff;
   text-shadow: none;
 }
 
+.video-js.vjs-music-volume > .vjs-progress-holder,
+.video-js.vjs-music-volume > .vjs-progress-control {
+  cursor: not-allowed;
+}
+
 .video-js .vjs-custom-volume-button {
   display: flex;
   align-items: center;
