@@ -15,11 +15,11 @@ const buildHtmlWebpackConfigs = async function () {
       inject: true,
       chunks: ['index'],
       filename: `${demoFileBase.name}.html`,
-    })
+    });
   });
 };
 
-module.exports = async function(env) {
+module.exports = async function (env) {
   return merge(common(env), {
     entry: {
       index: [
@@ -28,22 +28,19 @@ module.exports = async function(env) {
         './src/demo/preview.scss',
       ],
     },
+    output: {
+      path: path.resolve(__dirname, 'dist/v1'),
+    },
     mode: 'development',
     watch: true,
     module: {
       rules: [
         {
           test: /\.s[ac]ss$/i,
-          use: [
-            'style-loader',
-            'css-loader',
-            'sass-loader',
-          ],
-        }
-      ]
+          use: ['style-loader', 'css-loader', 'sass-loader'],
+        },
+      ],
     },
-    plugins: [
-      ...await buildHtmlWebpackConfigs()
-    ]
+    plugins: [...(await buildHtmlWebpackConfigs())],
   });
 };
