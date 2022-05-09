@@ -1,5 +1,4 @@
 import videojs from 'video.js';
-// import MusicVolumeButton from './components/MusicVolumeButton';
 import CustomVolumeButton from './components/CustomVolumeButton';
 
 // Default options for the plugin.

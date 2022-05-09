@@ -26,6 +26,7 @@
             },
             "plugins": {
               "musicVolume": {},
+              "musicOverlay": {},
               "airPlay": {
                 "addButtonToControlBar": true
               },
@@ -42,10 +43,11 @@
 
     <script>
       const player = videojs('mux-default');
-      // const player = document.getElementById('mux-default');
-      player.on('musicVolumeChange', (e, data) => {
-        console.log(data.musicVolume);
-      });
+      player.musicOverlay().setTrack('Nas - Illmatic');
+
+      setTimeout(() => {
+        player.musicOverlay().setTrack('Hello');
+      }, 10000);
     </script>
   </body>
 </html>
