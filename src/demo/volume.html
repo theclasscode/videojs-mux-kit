@@ -43,8 +43,8 @@
     <script>
       const player = videojs('mux-default');
       // const player = document.getElementById('mux-default');
-      player.on('musicVolumeChange', (e, val) => {
-        console.log('val', val);
+      player.on('musicVolumeChange', (e, data) => {
+        console.log(data.musicVolume);
       });
     </script>
   </body>
