@@ -13,7 +13,7 @@ import {
 import { setupSubtitlesForPlayer } from './utils/mux-subtitles';
 import { setupTimelineHoverPreviewsHelper } from './utils/mux-timelineHoverPreviews';
 import './plugins/music-volume';
-import './plugins/music-overlay2';
+import './plugins/music-overlay';
 
 airPlay(videojs);
 

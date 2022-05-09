@@ -61,6 +61,9 @@ class MusicOverlayComponent extends Component {
       this.el().classList.remove('vjs-music-overlay--hidden');
       this.el().classList.add('vjs-music-overlay--show');
       this.el().childNodes[0].innerHTML = track;
+    } else {
+      this.hideOverlay();
+      this.el().childNodes[0].innerHTML = '';
     }
   }
 }
