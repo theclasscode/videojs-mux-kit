@@ -13,17 +13,21 @@ class MusicOverlayComponent extends Component {
       this.hideOverlay();
     };
 
+    const displayOverlayAndThenHide = () => {
+      this.displayOverlay();
+      this.timer = window.setTimeout(hideOverlayAfterDelay, 8000);
+    };
+
     player.musicOverlay().on('statechanged', (e) => {
       if (e.changes && e.changes.track) {
-        this.displayOverlay();
+        displayOverlayAndThenHide();
       }
     });
 
     player.on('play', (e) => {
-      this.displayOverlay();
-
-      this.timer = window.setTimeout(hideOverlayAfterDelay, 8000);
+      displayOverlayAndThenHide();
     });
+
     player.on('pause', (e) => {
       window.clearTimeout(this.timer);
       this.displayOverlay();
