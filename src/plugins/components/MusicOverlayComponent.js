@@ -7,6 +7,7 @@ class MusicOverlayComponent extends Component {
     super(player, options);
 
     this.timer = null;
+    this.player = player;
 
     const hideOverlayAfterDelay = () => {
       this.hideOverlay();
@@ -55,7 +56,7 @@ class MusicOverlayComponent extends Component {
   }
 
   displayOverlay() {
-    const { track } = player.musicOverlay().state;
+    const { track } = this.player.musicOverlay().state;
 
     if (track) {
       this.el().classList.remove('vjs-music-overlay--hidden');
