@@ -5,6 +5,17 @@ const ClickableComponent = videojs.getComponent('ClickableComponent');
 class CustomVolumeButton extends ClickableComponent {
   constructor(player, options) {
     super(player, options);
+
+    window.addEventListener('click', (e) => {
+      const wrapper = document.querySelector('.vjs-volume-wrapper');
+      const volumeButton = document.querySelector('.vjs-custom-volume-button');
+
+      if (!wrapper.contains(e.target) && !volumeButton.contains(e.target)) {
+        if (!this.controlTextEl_.classList.contains('vjs-hidden')) {
+          this.controlTextEl_.classList.add('vjs-hidden');
+        }
+      }
+    });
   }
 
   buildCSSClass() {
