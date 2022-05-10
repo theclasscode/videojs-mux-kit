@@ -10,8 +10,8 @@ class CustomVolumeButton extends ClickableComponent {
       const wrapper = document.querySelector('.vjs-volume-wrapper');
       const volumeButton = document.querySelector('.vjs-custom-volume-button');
 
-      if (!wrapper.contains(e.target) && !volumeButton.contains(e.target)) {
-        if (!this.controlTextEl_.classList.contains('vjs-hidden')) {
+      if (!wrapper?.contains(e.target) && !volumeButton?.contains(e.target)) {
+        if (!this.controlTextEl_.classList?.contains('vjs-hidden')) {
           this.controlTextEl_.classList.add('vjs-hidden');
         }
       }
@@ -139,7 +139,7 @@ class CustomVolumeButton extends ClickableComponent {
 
   handleClick(e) {
     const classes = e.target.classList;
-    if (classes.contains('vjs-custom-volume-button')) {
+    if (classes?.contains('vjs-custom-volume-button')) {
       this.controlTextEl_.classList.toggle('vjs-hidden');
     }
 
