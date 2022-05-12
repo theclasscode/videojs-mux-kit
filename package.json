@@ -1,14 +1,14 @@
 {
   "name": "@the-class/video-player",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "",
-  "main": "dist/index.v1.0.10.js",
+  "main": "dist/index.v1.0.11.js",
   "scripts": {
     "clean": "rm -rf ./dist",
     "dev": "webpack serve --config webpack.dev.js",
     "dev:vhs": "webpack serve --config webpack.dev.js --env vhs",
     "prepublish": "npm run clean && npm run build",
-    "copy": "cpy \"dist/index.js\" \".\" --rename=index.v1.0.10.js",
+    "copy": "cpy \"dist/index.js\" \".\" --rename=index.v1.0.11.js",
     "build": "npm run build:hlsjs && npm run build:vhs && npm run copy",
     "build:hlsjs": "webpack --config webpack.prod.js",
     "build:vhs": "webpack --config webpack.prod.js --env vhs",
@@ -20,7 +20,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@silvermine/videojs-airplay": "^1.1.0",
+    "@the-class/videojs-airplay": "github:theclasscode/videojs-airplay#master",
     "cpy-cli": "^4.1.0",
     "hls.js": "^1.1.5",
     "is-ios": "^2.1.0",

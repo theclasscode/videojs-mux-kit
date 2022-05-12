@@ -1,5 +1,5 @@
 import videojs from 'video.js';
-import airPlay from '@silvermine/videojs-airplay';
+import airPlay from '@the-class/videojs-airplay';
 import 'videojs-contrib-quality-levels';
 import 'videojs-http-source-selector';
 import 'videojs-landscape-fullscreen';
