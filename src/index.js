@@ -27,15 +27,6 @@ videojs.hook('beforesetup', function (videoEl, options) {
 videojs.hook('setup', function (player) {
   setupTimelineHoverPreviewsHelper(player);
 
-  player.landscapeFullscreen({
-    fullscreen: {
-      enterOnRotate: true,
-      exitOnRotate: true,
-      alwaysInLandscapeMode: true,
-      iOS: true,
-    },
-  });
-
   if (player.options().timelineHoverPreviewsUrl) {
     // we should setup timelineHoverPreviews with the URL passed in the player config options
     player.timelineHoverPreviews({
