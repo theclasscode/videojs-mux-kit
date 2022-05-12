@@ -77,8 +77,8 @@ input[type='range'] {
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 12px;
-    width: 12px;
+    height: 15px;
+    width: 15px;
     border-radius: 50%;
     background: $volume-slider-color;
     cursor: ew-resize;
@@ -95,6 +95,15 @@ input[type='range'] {
     box-shadow: none;
     border: none;
     background: transparent;
+  }
+
+  &[disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &::-webkit-slider-thumb {
+      cursor: not-allowed;
+    }
   }
 }
 

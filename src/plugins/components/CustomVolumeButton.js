@@ -1,4 +1,5 @@
 import videojs from 'video.js';
+import iOS from 'is-ios';
 
 const ClickableComponent = videojs.getComponent('ClickableComponent');
 
@@ -31,6 +32,10 @@ class CustomVolumeButton extends ClickableComponent {
         id: 'teacherVolumeSlider',
       },
       {
+        // We can't control the video volume on iOS. The user is expected to control the volume from their device.
+        ...(iOS && {
+          disabled: true,
+        }),
         type: 'range',
         min: 0,
         max: 100,
