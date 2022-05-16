@@ -67,10 +67,10 @@ class CustomVolumeButton extends ClickableComponent {
     const teacherVolumeSliderLabel = videojs.dom.createEl('span');
     const musicVolumeSliderLabel = videojs.dom.createEl('span');
 
-    teacherVolumeSliderLabel.classList.add('select-none');
+    teacherVolumeSliderLabel?.classList.add('select-none');
     teacherVolumeSliderLabel.innerHTML = 'Teacher';
     musicVolumeSliderLabel.innerHTML = 'Music';
-    musicVolumeSliderLabel.classList.add('select-none');
+    musicVolumeSliderLabel?.classList.add('select-none');
 
     teacherVolume.appendChild(teacherVolumeSliderLabel);
     teacherVolume.appendChild(teacherSlider);
@@ -143,9 +143,9 @@ class CustomVolumeButton extends ClickableComponent {
   }
 
   handleClick(e) {
-    const classes = e.target.classList;
+    const classes = e.target?.classList;
     if (classes?.contains('vjs-custom-volume-button')) {
-      this.controlTextEl_.classList.toggle('vjs-hidden');
+      this.controlTextEl_?.classList.toggle('vjs-hidden');
     }
 
     const controlBarHeight =

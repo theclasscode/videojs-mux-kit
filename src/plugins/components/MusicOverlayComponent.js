@@ -55,20 +55,27 @@ class MusicOverlayComponent extends Component {
   }
 
   hideOverlay() {
-    this.el().classList.remove('vjs-music-overlay--show');
-    this.el().classList.add('vjs-music-overlay--hidden');
+    const el = this.el();
+
+    if (el) {
+      el.classList.remove('vjs-music-overlay--show');
+      el.classList.add('vjs-music-overlay--hidden');
+    }
   }
 
   displayOverlay() {
     const { track } = this.player.musicOverlay().state;
+    const el = this.el();
 
-    if (track) {
-      this.el().classList.remove('vjs-music-overlay--hidden');
-      this.el().classList.add('vjs-music-overlay--show');
-      this.el().childNodes[0].innerHTML = track;
-    } else {
-      this.hideOverlay();
-      this.el().childNodes[0].innerHTML = '';
+    if (el) {
+      if (track) {
+        el.classList.remove('vjs-music-overlay--hidden');
+        el.classList.add('vjs-music-overlay--show');
+        el.childNodes[0].innerHTML = track;
+      } else {
+        this.hideOverlay();
+        el.childNodes[0].innerHTML = '';
+      }
     }
   }
 }
