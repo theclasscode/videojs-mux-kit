@@ -46,13 +46,13 @@ class CustomVolumeButton extends ClickableComponent {
     const musicSlider = videojs.dom.createEl(
       'input',
       {
-        id: 'teacherVolumeSlider',
+        id: 'musicVolumeSlider',
       },
       {
         type: 'range',
         min: 0,
         max: 100,
-        value: 100,
+        value: 80,
         step: 1,
       }
     );
