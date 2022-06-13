@@ -27,7 +27,7 @@ class CustomVolumeButton extends ClickableComponent {
 
   createControlTextEl(el) {
     console.log('create el', {
-      opts: this.options_,
+      opts: this.options_.startingMusicVolume,
       startingMusicVolume: this.startingMusicVolume,
     });
 
@@ -57,7 +57,7 @@ class CustomVolumeButton extends ClickableComponent {
         type: 'range',
         min: 0,
         max: 100,
-        value: this.startingVolume || 80,
+        value: this.options_.startingMusicVolume || 80,
         step: 1,
       }
     );
