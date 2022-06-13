@@ -7,6 +7,8 @@ class CustomVolumeButton extends ClickableComponent {
   constructor(player, options) {
     super(player, options);
 
+    this._startingMusicVolume = options.startingVolume;
+
     window.addEventListener('click', (e) => {
       const wrapper = document.querySelector('.vjs-volume-wrapper');
       const volumeButton = document.querySelector('.vjs-custom-volume-button');
@@ -19,6 +21,10 @@ class CustomVolumeButton extends ClickableComponent {
     });
   }
 
+  get startingMusicVolume() {
+    return this._startingMusicVolume;
+  }
+
   buildCSSClass() {
     const volumeLevel = 3;
 
@@ -27,8 +33,8 @@ class CustomVolumeButton extends ClickableComponent {
 
   createControlTextEl(el) {
     console.log('create el', {
-      opts: this.options_.startingMusicVolume,
       startingMusicVolume: this.startingMusicVolume,
+      superTest: super.startingMusicVolume,
     });
 
     const teacherSlider = videojs.dom.createEl(
