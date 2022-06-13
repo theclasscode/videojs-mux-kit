@@ -27,10 +27,7 @@ class CustomVolumeButton extends ClickableComponent {
 
   createControlTextEl(el) {
     console.log('create el', {
-      opts: this.options_,
-      superopts: super.options_,
-      starting: this.options_.startingVolume,
-      superstarting: super.options_.startingVolume,
+      starting: this.options_?.startingVolume,
     });
 
     const teacherSlider = videojs.dom.createEl(
