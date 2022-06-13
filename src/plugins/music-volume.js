@@ -33,12 +33,14 @@ const musicVolume = function (options) {
     const controlBar = this.getChild('controlBar');
     const progressControl = controlBar.getChild('progressControl').el();
 
-    controlBar
-      .el()
-      .insertBefore(
-        controlBar.addChild('CustomVolumeButton').el(),
-        progressControl
-      );
+    controlBar.el().insertBefore(
+      controlBar
+        .addChild('CustomVolumeButton', {
+          startingVolume: opts.startingVolume,
+        })
+        .el(),
+      progressControl
+    );
   });
 
   videojs.registerComponent('CustomVolumeButton', CustomVolumeButton);
