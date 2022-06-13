@@ -2,14 +2,15 @@ import videojs from 'video.js';
 import iOS from 'is-ios';
 
 const ClickableComponent = videojs.getComponent('ClickableComponent');
-let test = 0;
 
 class CustomVolumeButton extends ClickableComponent {
+  startingMusicVolume = 80;
+
   constructor(player, options) {
     super(player, options);
 
+    console.log('starting volume', options.startingVolume, this.options_);
     this.startingMusicVolume = options.startingVolume;
-    test = options.startingVolume;
 
     window.addEventListener('click', (e) => {
       const wrapper = document.querySelector('.vjs-volume-wrapper');
@@ -31,9 +32,6 @@ class CustomVolumeButton extends ClickableComponent {
 
   createControlTextEl(el) {
     console.log('create el', {
-      test,
-      this: this,
-      super: super.startingMusicVolume,
       startingMusicVolume: this.startingMusicVolume,
     });
 
