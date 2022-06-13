@@ -6,6 +6,7 @@ const ClickableComponent = videojs.getComponent('ClickableComponent');
 class CustomVolumeButton extends ClickableComponent {
   constructor(player, options) {
     super(player, options);
+    console.log('CUSTOM VOLUME BUTTON', { options });
 
     window.addEventListener('click', (e) => {
       const wrapper = document.querySelector('.vjs-volume-wrapper');
