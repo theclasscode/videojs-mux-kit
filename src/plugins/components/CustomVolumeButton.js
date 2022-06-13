@@ -7,9 +7,6 @@ class CustomVolumeButton extends ClickableComponent {
   constructor(player, options) {
     super(player, options);
 
-    ClickableComponent.apply(this, arguments);
-    this.startingVolume = options.startingVolume;
-
     window.addEventListener('click', (e) => {
       const wrapper = document.querySelector('.vjs-volume-wrapper');
       const volumeButton = document.querySelector('.vjs-custom-volume-button');
