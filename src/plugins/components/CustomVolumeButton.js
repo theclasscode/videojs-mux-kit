@@ -7,6 +7,7 @@ class CustomVolumeButton extends ClickableComponent {
   constructor(player, options) {
     super(player, options);
 
+    ClickableComponent.apply(this, arguments);
     this.startingVolume = options.startingVolume;
 
     window.addEventListener('click', (e) => {
@@ -28,7 +29,7 @@ class CustomVolumeButton extends ClickableComponent {
   }
 
   createControlTextEl(el) {
-    console.log('create el', this.startingVolume);
+    console.log('create el', this);
     const teacherSlider = videojs.dom.createEl(
       'input',
       {
