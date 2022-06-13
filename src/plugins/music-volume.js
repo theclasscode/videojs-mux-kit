@@ -24,9 +24,6 @@ const onPlayerReady = (player, options) => {
 const musicVolume = function (options) {
   this.ready(() => {
     const opts = videojs.mergeOptions(defaults, options);
-    console.log('music volume', {
-      opts,
-    });
 
     onPlayerReady(this, opts);
 
