@@ -8,7 +8,8 @@ class CustomVolumeButton extends ClickableComponent {
     super(player, options);
     console.log('CUSTOM VOLUME BUTTON', { player, options });
 
-    this.startingVolume = player.options.plugins.musicVolume.startingVolume;
+    // this.startingVolume = player.options.plugins.musicVolume.startingVolume;
+    this.startingVolume = 10;
 
     window.addEventListener('click', (e) => {
       const wrapper = document.querySelector('.vjs-volume-wrapper');
