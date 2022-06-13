@@ -26,6 +26,10 @@ class CustomVolumeButton extends ClickableComponent {
   }
 
   createControlTextEl(el) {
+    const startingVolume = this.options_.startingVolume || 80;
+
+    this.player_.trigger('musicVolumeChange', { musicVolume: startingVolume });
+
     const teacherSlider = videojs.dom.createEl(
       'input',
       {
@@ -52,7 +56,7 @@ class CustomVolumeButton extends ClickableComponent {
         type: 'range',
         min: 0,
         max: 100,
-        value: 80,
+        value: startingVolume,
         step: 1,
       }
     );

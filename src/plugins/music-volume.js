@@ -23,17 +23,21 @@ const onPlayerReady = (player, options) => {
  */
 const musicVolume = function (options) {
   this.ready(() => {
-    onPlayerReady(this, videojs.mergeOptions(defaults, options));
+    const opts = videojs.mergeOptions(defaults, options);
+
+    onPlayerReady(this, opts);
 
     const controlBar = this.getChild('controlBar');
     const progressControl = controlBar.getChild('progressControl').el();
 
-    controlBar
-      .el()
-      .insertBefore(
-        controlBar.addChild('CustomVolumeButton').el(),
-        progressControl
-      );
+    controlBar.el().insertBefore(
+      controlBar
+        .addChild('CustomVolumeButton', {
+          startingVolume: opts.startingVolume,
+        })
+        .el(),
+      progressControl
+    );
   });
 
   videojs.registerComponent('CustomVolumeButton', CustomVolumeButton);
