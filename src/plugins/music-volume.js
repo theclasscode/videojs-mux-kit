@@ -24,6 +24,9 @@ const onPlayerReady = (player, options) => {
 const musicVolume = function (options) {
   this.ready(() => {
     const opts = videojs.mergeOptions(defaults, options);
+    console.log('music volume', {
+      opts,
+    });
 
     onPlayerReady(this, opts);
 
@@ -38,9 +41,7 @@ const musicVolume = function (options) {
       );
   });
 
-  videojs.registerComponent('CustomVolumeButton', () =>
-    CustomVolumeButton(opts)
-  );
+  videojs.registerComponent('CustomVolumeButton', CustomVolumeButton);
 };
 
 // Register the plugin with video.js.
