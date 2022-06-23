@@ -71,7 +71,7 @@ class MusicOverlayComponent extends Component {
       if (track) {
         el.classList.remove('vjs-music-overlay--hidden');
         el.classList.add('vjs-music-overlay--show');
-        el.childNodes[0].innerHTML = track;
+        el.childNodes[0].innerHTML = `<p class="song-name">${track}</p><p class="powered-feed"><a href="http://theclass.com/feeddisclaimer" target="_blank">Powered by Feed.FM</a></p>`;
       } else {
         this.hideOverlay();
         el.childNodes[0].innerHTML = '';
