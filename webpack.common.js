@@ -1,5 +1,6 @@
 const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (env) => {
   const config = {
@@ -25,6 +26,9 @@ module.exports = (env) => {
     },
     plugins: [
       new ESBuildPlugin(),
+      new CopyWebpackPlugin({
+        patterns: [{ from: 'src/images', to: 'images' }],
+      }),
       new MiniCssExtractPlugin({
         filename: 'index.css',
       }),

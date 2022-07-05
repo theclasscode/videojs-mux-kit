@@ -19,22 +19,30 @@
           width="100%"
           poster="https://image.mux.com/DS00Spx1CV902MCtPj5WknGlR102V5HFkDe/thumbnail.jpg"
           data-setup='{
-            "controlBar": {
-              "liveDisplay": true,
-              "pictureInPictureToggle": false,
-              "volumePanel": false 
+            "controlBar":{
+               "liveDisplay":true,
+               "pictureInPictureToggle":false,
+               "volumePanel":false
             },
-            "plugins": {
-              "musicVolume": {},
-              "musicOverlay": {},
-              "airPlay": {
-                "addButtonToControlBar": true
-              },
-              "httpSourceSelector": {
-                "default": "high"
-              }
+            "techOrder":[
+               "chromecast",
+               "html5"
+            ],
+            "plugins":{
+               "chromecast":{
+               },
+               "musicVolume":{
+               },
+               "musicOverlay":{
+               },
+               "airPlay":{
+                  "addButtonToControlBar":true
+               },
+               "httpSourceSelector":{
+                  "default":"high"
+               }
             }
-        }'
+         }'
         >
           <source
             src="Op1vsY02jdtYVZNqeCyVcBzBMU3h00uRxC2tobbyTa01KY"

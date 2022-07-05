@@ -1,5 +1,6 @@
 import videojs from 'video.js';
 import airPlay from '@the-class/videojs-airplay';
+import chromecast from '@silvermine/videojs-chromecast';
 import 'videojs-contrib-quality-levels';
 import 'videojs-http-source-selector';
 import 'videojs-landscape-fullscreen';
@@ -15,6 +16,7 @@ import { setupTimelineHoverPreviewsHelper } from './utils/mux-timelineHoverPrevi
 import './plugins/music-volume';
 import './plugins/music-overlay';
 
+chromecast(videojs);
 airPlay(videojs);
 
 videojs.hook('beforesetup', function (videoEl, options) {
@@ -26,6 +28,8 @@ videojs.hook('beforesetup', function (videoEl, options) {
 
 videojs.hook('setup', function (player) {
   setupTimelineHoverPreviewsHelper(player);
+
+  player.chromecast();
 
   if (player.options().timelineHoverPreviewsUrl) {
     // we should setup timelineHoverPreviews with the URL passed in the player config options

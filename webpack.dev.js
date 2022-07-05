@@ -36,8 +36,12 @@ module.exports = async function (env) {
     module: {
       rules: [
         {
+          test: /\.(png|jpg)$/,
+          loader: 'url-loader',
+        },
+        {
           test: /\.s[ac]ss$/i,
-          use: ['style-loader', 'css-loader', 'sass-loader'],
+          use: ['style-loader', 'css-loader?url=false', 'sass-loader'],
         },
       ],
     },
