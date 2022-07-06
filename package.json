@@ -1,14 +1,14 @@
 {
   "name": "@the-class/video-player",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "",
-  "main": "dist/index.v1.0.18.js",
+  "main": "dist/index.v1.0.19.js",
   "scripts": {
     "clean": "rm -rf ./dist",
     "dev": "webpack serve --config webpack.dev.js",
     "dev:vhs": "webpack serve --config webpack.dev.js --env vhs",
     "prepublish": "npm run clean && npm run build",
-    "copy": "cpy \"dist/index.js\" \".\" --rename=index.v1.0.18.js",
+    "copy": "cpy \"dist/index.js\" \".\" --rename=index.v1.0.19.js",
     "build": "npm run build:hlsjs && npm run build:vhs && npm run copy",
     "build:hlsjs": "webpack --config webpack.prod.js",
     "build:vhs": "webpack --config webpack.prod.js --env vhs",
